@@ -1,0 +1,24 @@
+[Unit]
+Description=Blockchain node export
+ConditionPathExists=/vagrant/
+After=syslog.target network.target postgresql.service
+Requires=postgresql.service
+
+[Service]
+Type=simple
+User=vagrant
+Group=vagrant
+
+Restart=on-failure
+RestartSec=10
+
+WorkingDirectory=/vagrant/
+ExecStart=/vagrant/bne --mode="worker" --worker-interval=900 --blockchain-rpc-dsn=$BNE_BLOCKCHAIN_RPC_DSN --output-type=database --blockchain-database-dsn=$BNE_BLOCKCHAIN_DATABASE_DSN"
+
+TimeoutSec=3
+Restart=always
+
+SyslogIdentifier=blockchain_node_export
+
+[Install]
+WantedBy=multi-user.target

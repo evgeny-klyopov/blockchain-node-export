@@ -13,3 +13,17 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+mock
+output
+cli
+.env
+.idea/
+.DS_Store
+
+bne
+bne.exe
+bne-linux.tar.gz
+bne-macos.tar.gz
+bne-macos-m1.tar.gz
+bne-windows.tar.gz

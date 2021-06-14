@@ -1,0 +1,24 @@
+#!/bin/bash
+# linux
+env GOARCH=amd64 GOOS=linux go build -o bne github.com/evgeny-klyopov/blockchain-node-export/cmd
+chmod +x bne
+tar -czvf bne-linux.tar.gz bne
+rm -rf bne
+
+#macos
+env GOOS=darwin GOARCH=amd64 go build -o bne github.com/evgeny-klyopov/blockchain-node-export/cmd
+chmod +x bne
+tar -czvf bne-macos.tar.gz bne
+rm -rf bne
+
+#macos-m1
+env GOOS=darwin GOARCH=arm64 go build -o bne github.com/evgeny-klyopov/blockchain-node-export/cmd
+chmod +x bne
+tar -czvf bne-macos-m1.tar.gz bne
+rm -rf bne
+
+#windows
+env GOOS=windows GOARCH=amd64 go build -o bne.exe github.com/evgeny-klyopov/blockchain-node-export/cmd
+chmod +x bne.exe
+tar -czvf bne-windows.tar.gz bne.exe
+rm -rf bne.exe
